@@ -1,12 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-.book-card{
+.product-card{
     padding-bottom: 15px;
 }
 
-.book-card-btn{
+.product-card-btn{
     text-align: center;
 }
 
 footer{
     bottom: 0;
+}
+
+div.card img{
+    max-height: 250px;
+    width: 100%;
 }

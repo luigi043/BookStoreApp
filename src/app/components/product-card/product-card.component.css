@@ -1,0 +1,10 @@
+span#rate {
+    font-size: 18px;
+    margin-right: 3px;
+    cursor: pointer;
+  }
+  
+  span.filled {
+    color: gold;
+  }
+  

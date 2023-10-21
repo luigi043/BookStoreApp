@@ -1,0 +1,22 @@
+<div class="product-card">
+    <div class="card">
+        <img [src]="product.image" class="card-img-top" [alt]="product.title">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+
+            <span [ngClass]="getBadgeClass(product.category)">{{ product.category }}</span> <br>
+            {{ product.rating.rate }}  
+            <span id="rate" 
+                *ngFor="let star of stars" 
+                [class.filled]="star <= rating" 
+                (click)="setRating(star)"> ★ 
+            </span> 
+            ({{product.rating.count}})
+        </div>
+        <div class="card-footer">
+            <div class="text-center">
+                <a href="#" class="btn btn-success btn-sm" (click)="orderProduct()">Order Now</a>
+            </div>
+        </div>
+    </div>
+</div>
