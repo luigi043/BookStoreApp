@@ -8,10 +8,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ProductCardComponent {
 
   @Input() product: any;
-  @Output() order = new EventEmitter<any>();
+  @Output() orderProduct = new EventEmitter<any>();
+  @Output() removeProduct = new EventEmitter<number>();
 
-  orderProduct() {
-    this.order.emit(this.product);
+  orderProductClick() {
+    this.orderProduct.emit(this.product);
+  }
+
+  removeProductClick(id:number){
+    this.removeProduct.emit(id);
   }
 
   rating = 3; // Initialize to some default value between 1-5

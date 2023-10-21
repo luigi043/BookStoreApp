@@ -8,3 +8,7 @@ span#rate {
     color: gold;
   }
   
+  div.card-footer span {
+    float: right; 
+    cursor: pointer;
+  }

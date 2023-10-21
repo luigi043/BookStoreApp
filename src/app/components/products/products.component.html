@@ -3,7 +3,7 @@
         
         <div class="col-md-3" *ngFor="let product of products">
 
-            <app-product-card [product]="product" (order)="orderProductNow($event)"></app-product-card>
+            <app-product-card [product]="product" (orderProduct)="orderProductNow($event)" (removeProduct)="removeProductNow($event)"></app-product-card>
 
         </div>
     </div>

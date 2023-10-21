@@ -26,4 +26,9 @@ export class ProductService {
     return this.http.put<any>(`${this._baseUrl}/products/${product.id}`, product);
   }
 
+  removeProduct(id: number): Observable<any> {
+    return this.http.delete<any>(`${this._baseUrl}/products/${id}`);
+  }
+
+
 }

@@ -27,4 +27,7 @@ export class ProductsComponent {
     console.log('Product to be ordered: ', product);
   }
 
+  removeProductNow(id: number) {
+    console.log('Product to be removed: ', id);
+  }
 }
