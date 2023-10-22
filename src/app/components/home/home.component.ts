@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  showMore: boolean = false;
+  showBtnTxt:string = "Show more..";
+
+  toggleShowMore(){
+    this.showMore = !this.showMore;
+
+    if(this.showMore)
+    {
+      this.showBtnTxt = "Show less..";
+    } else{
+      this.showBtnTxt = "Show more.."
+    }
+  }
+
 }

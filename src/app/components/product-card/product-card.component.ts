@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,6 +11,8 @@ export class ProductCardComponent {
   @Input() product: any;
   @Output() orderProduct = new EventEmitter<any>();
   @Output() removeProduct = new EventEmitter<number>();
+
+  constructor(public userService: UserService) {}
 
   orderProductClick() {
     this.orderProduct.emit(this.product);
