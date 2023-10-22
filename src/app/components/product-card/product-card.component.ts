@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class ProductCardComponent {
   @Output() orderProduct = new EventEmitter<any>();
   @Output() removeProduct = new EventEmitter<number>();
 
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService,
+    public router: Router) {}
 
   orderProductClick() {
     this.orderProduct.emit(this.product);
@@ -20,6 +22,10 @@ export class ProductCardComponent {
 
   removeProductClick(id:number){
     this.removeProduct.emit(id);
+  }
+
+  showDetails(id: number){
+    this.router.navigate([`products/${id}`])
   }
 
   rating = 3; // Initialize to some default value between 1-5
