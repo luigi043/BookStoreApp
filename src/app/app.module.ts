@@ -17,11 +17,14 @@ import { FormsModule } from '@angular/forms';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
-import {StoreModule} from '@ngrx/store';
+import {MetaReducer, StoreModule} from '@ngrx/store';
 import { homeReducer } from './ngrx-state/reducers/home.reducer';
 import { productReducer } from './ngrx-state/reducers/product.reducer';
 import { ProductEffects } from './ngrx-state/effects/product.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { logger } from './ngrx-state/logger.meta-reducer';
+
+export const metaReducers: MetaReducer<any>[] = [logger];
 
 @NgModule({
   declarations: [
@@ -43,7 +46,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     FormsModule,
 
-    StoreModule.forRoot({home: homeReducer, products: productReducer}),
+    StoreModule.forRoot({home: homeReducer, products: productReducer}, {metaReducers}),
     EffectsModule.forRoot([ProductEffects])
   ],
   providers: [],
