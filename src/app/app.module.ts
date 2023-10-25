@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
+import {StoreModule} from '@ngrx/store';
+import { homeReducer } from './ngrx-state/reducers/home.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,9 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+
+    StoreModule.forRoot({home: homeReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
