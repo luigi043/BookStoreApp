@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { LoadProducts } from 'src/app/state-ngxs/actions/product.actions';
 
 @Component({
   selector: 'app-products',
@@ -9,18 +12,27 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent {
 
-  products: any[] = [];
+  // products: any[] = [];
   product: any;
+
+  products$: Observable<any>;
+
 
   constructor(
     private productService: ProductService, 
-    private router: Router) {}
+    private store: Store,
+    private router: Router) {
+      this.products$ = this.store.select(state => state.products.products);
+    }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
-      console.log('Products: ', this.products);
-    });
+
+    this.store.dispatch(new LoadProducts())
+
+    // this.productService.getProducts().subscribe(data => {
+    //   this.products = data;
+    //   console.log('Products: ', this.products);
+    // });
   }
   
   orderProductNow(product: any) {
