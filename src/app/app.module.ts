@@ -18,6 +18,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgxsModule } from '@ngxs/store';
 import { HomeState } from './state-ngxs/state/home.state';
+import { ProductState } from './state-ngxs/state/product.state';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { HomeState } from './state-ngxs/state/home.state';
     AppRoutingModule,
     FormsModule,
 
-    NgxsModule.forRoot([HomeState])
+    NgxsModule.forRoot([HomeState, ProductState])
   ],
   providers: [],
   bootstrap: [AppComponent]
