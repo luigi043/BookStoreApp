@@ -9,18 +9,15 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent {
 
-  products: any[] = [];
+  // products: any[] = [];
   product: any;
 
   constructor(
-    private productService: ProductService, 
+    public productService: ProductService, 
     private router: Router) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
-      console.log('Products: ', this.products);
-    });
+    this.productService.getProducts();
   }
   
   orderProductNow(product: any) {
