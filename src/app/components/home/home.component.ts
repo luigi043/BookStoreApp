@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  isShowMore: boolean = false;
+  
+  showMore(){
+    this.isShowMore = true;
+  }
+
+  showLess(){
+    this.isShowMore = false;
+  }
+
 }
