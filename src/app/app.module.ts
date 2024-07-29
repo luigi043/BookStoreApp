@@ -16,6 +16,11 @@ import { SignupComponent } from './components/about/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { NgxsModule } from '@ngxs/store';
+import { HomeState } from './state-ngxs/state/home.state';
+import { ProductState } from './state-ngxs/state/product.state';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,10 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxsModule.forRoot([HomeState, ProductState]), // Your state classes will be registered here
+    NgxsLoggerPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
