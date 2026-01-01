@@ -1,4 +1,5 @@
 # BookStoreApp
+<img width="1919" height="990" alt="image" src="https://github.com/user-attachments/assets/e0b32e23-ebfe-4434-a9ab-d1f27dd714cb" />
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
